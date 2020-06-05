@@ -4,10 +4,15 @@ from tkinter.font import Font
 from tkinter import messagebox
 import parser
 from math import sqrt, factorial
-button_param = {"relief": "flat", 
+
+
+button_param = {
+"relief": "flat", 
 "height": 3, 
 "width": 3, 
-"font": "Arial 11 bold"}
+"font": "Courier 11 bold",
+"activebackground": "gray74"
+}
 
 
 class Calculator(tk.Frame):
@@ -93,7 +98,7 @@ class Calculator(tk.Frame):
 		command=lambda: self.reset(),
 		**button_param
 )
-		self.but_C.grid(row=1, column=5)
+		self.but_C.grid(row=3, column=6)
 		self.but_CE = tk.Button(self, 
 		text="CE", 
 		command=lambda: self.delete(),
@@ -141,7 +146,7 @@ class Calculator(tk.Frame):
 		command=lambda: self.result(),
 		**button_param
 )
-		self.but_result.grid(row=4, column=2)
+		self.but_result.grid(row=1, column=5)
 		self.but_sqrt = tk.Button(self,
 		text="√",
 		command=lambda: self.square(),
@@ -154,14 +159,19 @@ class Calculator(tk.Frame):
 		**button_param
 )
 		self.but_openparen.grid(row=1, column=6)
-		self.but_sqrt.grid(row=4, column=5)
 		self.but_closeparen = tk.Button(self,
 		text=")",
 		command=lambda: self.clicked(")"),
 		**button_param
 )
 		self.but_closeparen.grid(row=2, column=6)
-		self.entry = tk.Entry(self, relief="flat", font="Arial 12 bold")
+		self.but_dot = tk.Button(self,
+		text=".",
+		command=lambda: self.clicked("."),
+		**button_param
+)
+		self.but_dot.grid(row=4, column=2)
+		self.entry = tk.Entry(self, relief="flat", font="Arial 15 bold")
 		self.entry.grid(row=0, columnspan=7, sticky=tk.W + tk.E)
 
 	def key_binding(self, event):

@@ -4,13 +4,11 @@ from tkinter.font import Font
 from tkinter import messagebox
 import parser
 from math import sqrt, factorial
-# TODO: add colors.
-# TODO: change font and font color of buttons.
-# FIXME: fix entry low quality font problem.
 button_param = {"relief": "flat", 
 "height": 3, 
 "width": 3, 
 "font": "Arial 11 bold"}
+
 
 class Calculator(tk.Frame):
 	"""

@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 from tkinter.font import Font
 from tkinter import messagebox
 import parser

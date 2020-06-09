@@ -15,24 +15,11 @@ button_param = {
 
 
 class Calculator(tk.Frame):
-    """
-    Creates a new Calculator class.
-    """
-
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self.grid()
-        self.init_gui()
         self.master.title("Calculator")
         self.master.resizable(width=False, height=False)
-        self.master.bind("key", self.key_binding)
-        self.master.bind("<Return>", self.return_key)
-        self.mainloop()
-
-    def init_gui(self):
-        """
-        Initiates graphical interface (buttons and entry).
-        """
         self.but1 = tk.Button(self,
                               text="1",
                               command=lambda: self.clicked(1),
@@ -117,12 +104,12 @@ class Calculator(tk.Frame):
                                    **button_param
                                    )
         self.but_minus.grid(row=2, column=4)
-        self.but_mult = tk.Button(self,
-                                  text="*",
-                                  command=lambda: self.clicked("*"),
-                                  **button_param
-                                  )
-        self.but_mult.grid(row=3, column=4)
+        self.but_multi = tk.Button(self,
+                                   text="*",
+                                   command=lambda: self.clicked("*"),
+                                   **button_param
+                                   )
+        self.but_multi.grid(row=3, column=4)
         self.but_div = tk.Button(self,
                                  text="÷",
                                  command=lambda: self.clicked("/"),
@@ -147,24 +134,24 @@ class Calculator(tk.Frame):
                                     **button_param
                                     )
         self.but_result.grid(row=1, column=5)
-        self.but_sqrt = tk.Button(self,
-                                  text="√",
-                                  command=lambda: self.square(),
-                                  **button_param
-                                  )
-        self.but_sqrt.grid(row=4, column=5)
-        self.but_openparen = tk.Button(self,
-                                       text="(",
-                                       command=lambda: self.clicked("("),
-                                       **button_param
-                                       )
-        self.but_openparen.grid(row=1, column=6)
-        self.but_closeparen = tk.Button(self,
-                                        text=")",
-                                        command=lambda: self.clicked(")"),
+        self.but_square_root = tk.Button(self,
+                                         text="√",
+                                         command=lambda: self.square(),
+                                         **button_param
+                                         )
+        self.but_square_root.grid(row=4, column=5)
+        self.but_open_paren = tk.Button(self,
+                                        text="(",
+                                        command=lambda: self.clicked("("),
                                         **button_param
                                         )
-        self.but_closeparen.grid(row=2, column=6)
+        self.but_open_paren.grid(row=1, column=6)
+        self.but_close_paren = tk.Button(self,
+                                         text=")",
+                                         command=lambda: self.clicked(")"),
+                                         **button_param
+                                         )
+        self.but_close_paren.grid(row=2, column=6)
         self.but_dot = tk.Button(self,
                                  text=".",
                                  command=lambda: self.clicked("."),
@@ -173,6 +160,9 @@ class Calculator(tk.Frame):
         self.but_dot.grid(row=4, column=2)
         self.entry = tk.Entry(self, relief="flat", font="Arial 15 bold")
         self.entry.grid(row=0, columnspan=7, sticky=tk.W + tk.E)
+        self.master.bind("key", self.key_binding)
+        self.master.bind("<Return>", self.return_key)
+        self.mainloop()
 
     def key_binding(self, event):
         self.entry.insert("end", event.char)

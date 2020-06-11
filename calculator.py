@@ -15,7 +15,7 @@ button_param = {
 
 class Calculator(tk.Frame):
     def __init__(self, master=None):
-        """ Create a frame widget with the parent MASTER fot the class Calculator. """
+        """Create a frame widget with the parent MASTER fot the class Calculator."""
         tk.Frame.__init__(self, master)
         self.grid()
         self.master.title("Calculator")
@@ -230,23 +230,8 @@ class Calculator(tk.Frame):
             self.entry.delete(0, "end")
 
     def return_key(self, event):
-        """Calculate the result when pressed Enter"""
-        try:
-            result = eval(parser.expr(self.entry.get()).compile())
-            self.entry.delete(0, "end")
-            self.entry.insert("end", result)
-        except ZeroDivisionError:
-            tk.messagebox.showerror(
-                title="Zero Division",
-                message="Cannot be divided by zero!"
-            )
-            self.entry.delete(0, "end")
-        except SyntaxError:
-            tk.messagebox.showerror(
-                title="Invalid Operation",
-                message="Invalid operation!"
-            )
-            self.entry.delete(0, "end")
+        """Calculate the result when pressed Enter."""
+        self.result()
 
 
 def main():

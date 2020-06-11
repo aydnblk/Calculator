@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter.font import Font
 from tkinter import messagebox
 import parser
 from math import sqrt, factorial
@@ -16,6 +15,7 @@ button_param = {
 
 class Calculator(tk.Frame):
     def __init__(self, master=None):
+        """ Create a frame widget with the parent MASTER fot the class Calculator. """
         tk.Frame.__init__(self, master)
         self.grid()
         self.master.title("Calculator")
@@ -168,21 +168,15 @@ class Calculator(tk.Frame):
         self.entry.insert("end", event.char)
 
     def clicked(self, char):
-        """
-        When button is clicked, the corresponding value is inserted into the entry.
-        """
+        """When button is clicked, the corresponding value is inserted into the entry."""
         self.entry.insert("end", char)
 
     def reset(self):
-        """
-        Resets all the operations passed.
-        """
+        """Reset all the operations passed."""
         self.entry.delete(0, "end")
 
     def delete(self):
-        """
-        Deletes characters from end of the entry one by one.
-        """
+        """Delete characters from end of the entry one by one."""
         entry = self.entry.get()
         self.reset()
         entry_new = entry[:-1]
@@ -207,18 +201,15 @@ class Calculator(tk.Frame):
             self.entry.delete(0, "end")
 
     def factorial(self):
-        """
-        Calculates the factorial value of the given number.
-        """
+        """Calculate the factorial value of the given number."""
         try:
             n = factorial(int(self.entry.get()))
             self.entry.delete(0, "end")
             self.entry.insert("end", n)
         except ValueError:
-            tk.messagebox.showwarning(
+            tk.messagebox.showerror(
                 title="Invalid Value",
-                message="You entered an invalid value!"
-            )
+                message="You entered an invalid value!")
             self.entry.delete(0, "end")
         except OverflowError:
             tk.messagebox.showerror(
@@ -239,9 +230,7 @@ class Calculator(tk.Frame):
             self.entry.delete(0, "end")
 
     def return_key(self, event):
-        """
-        Calculates the result when pressed Enter
-        """
+        """Calculate the result when pressed Enter"""
         try:
             result = eval(parser.expr(self.entry.get()).compile())
             self.entry.delete(0, "end")

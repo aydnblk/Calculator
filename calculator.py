@@ -15,148 +15,79 @@ button_param = {
 
 class Calculator(tk.Frame):
     def __init__(self, master=None):
-        """Create a frame widget with the parent MASTER fot the class Calculator."""
+        """Create a frame widget with the parent MASTER for the class Calculator."""
         tk.Frame.__init__(self, master)
         self.grid()
         self.master.title("Calculator")
         self.master.resizable(width=False, height=False)
-        self.but1 = tk.Button(self,
-                              text="1",
-                              command=lambda: self.clicked(1),
-                              **button_param
-                              )
+        self.but1 = tk.Button(
+            self, text="1", command=lambda arg=1: self.clicked(arg), **button_param)
         self.but1.grid(row=1, column=1)
-        self.but2 = tk.Button(self,
-                              text="2",
-                              command=lambda: self.clicked(2),
-                              **button_param
-                              )
+        self.but2 = tk.Button(
+            self, text="2", command=lambda arg=2: self.clicked(arg), **button_param)
         self.but2.grid(row=1, column=2)
-        self.but3 = tk.Button(self,
-                              text="3",
-                              command=lambda: self.clicked(3),
-                              **button_param
-                              )
+        self.but3 = tk.Button(
+            self, text="3", command=lambda arg=3: self.clicked(arg), **button_param)
         self.but3.grid(row=1, column=3)
-        self.but4 = tk.Button(self,
-                              text="4",
-                              command=lambda: self.clicked(4),
-                              **button_param
-                              )
+        self.but4 = tk.Button(
+            self, text="4", command=lambda arg=4: self.clicked(arg), **button_param)
         self.but4.grid(row=2, column=1)
-        self.but5 = tk.Button(self,
-                              text="5",
-                              command=lambda: self.clicked(5),
-                              **button_param
-                              )
+        self.but5 = tk.Button(
+            self, text="5", command=lambda arg=5: self.clicked(arg), **button_param)
         self.but5.grid(row=2, column=2)
-        self.but6 = tk.Button(self,
-                              text="6",
-                              command=lambda: self.clicked(6),
-                              **button_param
-                              )
+        self.but6 = tk.Button(
+            self, text="6", command=lambda arg=6: self.clicked(arg), **button_param)
         self.but6.grid(row=2, column=3)
-        self.but7 = tk.Button(self,
-                              text="7",
-                              command=lambda: self.clicked(7),
-                              **button_param
-                              )
+        self.but7 = tk.Button(
+            self, text="7", command=lambda arg=7: self.clicked(arg), **button_param)
         self.but7.grid(row=3, column=1)
-        self.but8 = tk.Button(self,
-                              text="8",
-                              command=lambda: self.clicked(8),
-                              **button_param
-                              )
+        self.but8 = tk.Button(
+            self, text="8", command=lambda arg=8: self.clicked(arg), **button_param)
         self.but8.grid(row=3, column=2)
-        self.but9 = tk.Button(self,
-                              text="9",
-                              command=lambda: self.clicked(9),
-                              **button_param
-                              )
+        self.but9 = tk.Button(
+            self, text="9", command=lambda arg=9: self.clicked(arg), **button_param)
         self.but9.grid(row=3, column=3)
-        self.but0 = tk.Button(self,
-                              text="0",
-                              command=lambda: self.clicked(0),
-                              **button_param
-                              )
+        self.but0 = tk.Button(
+            self, text="0", command=lambda arg=0: self.clicked(arg), **button_param)
         self.but0.grid(row=4, column=1)
-        self.but_C = tk.Button(self,
-                               text="C",
-                               command=lambda: self.reset(),
-                               **button_param
-                               )
+        self.but_C = tk.Button(
+            self, text="C", command=self.reset, **button_param)
         self.but_C.grid(row=3, column=6)
-        self.but_CE = tk.Button(self,
-                                text="CE",
-                                command=lambda: self.delete(),
-                                **button_param
-                                )
+        self.but_CE = tk.Button(
+            self, text="CE", command=self.delete, **button_param)
         self.but_CE.grid(row=4, column=3)
-        self.but_plus = tk.Button(self,
-                                  text="+",
-                                  command=lambda: self.clicked("+"),
-                                  **button_param
-                                  )
+        self.but_plus = tk.Button(
+            self, text="+", command=lambda arg="+": self.clicked(arg), **button_param)
         self.but_plus.grid(row=1, column=4)
-        self.but_minus = tk.Button(self,
-                                   text="-",
-                                   command=lambda: self.clicked("-"),
-                                   **button_param
-                                   )
+        self.but_minus = tk.Button(
+            self, text="-", command=lambda arg="-": self.clicked(arg), **button_param)
         self.but_minus.grid(row=2, column=4)
-        self.but_multi = tk.Button(self,
-                                   text="*",
-                                   command=lambda: self.clicked("*"),
-                                   **button_param
-                                   )
+        self.but_multi = tk.Button(
+            self, text="*", command=lambda arg="*": self.clicked(arg), **button_param)
         self.but_multi.grid(row=3, column=4)
-        self.but_div = tk.Button(self,
-                                 text="÷",
-                                 command=lambda: self.clicked("/"),
-                                 **button_param
-                                 )
+        self.but_div = tk.Button(
+            self, text="÷", command=lambda arg="/": self.clicked(arg), **button_param)
         self.but_div.grid(row=4, column=4)
-        self.but_fact = tk.Button(self,
-                                  text="!",
-                                  command=lambda: self.factorial(),
-                                  **button_param
-                                  )
+        self.but_fact = tk.Button(
+            self, text="!", command=self.factorial, **button_param)
         self.but_fact.grid(row=2, column=5)
-        self.but_pow = tk.Button(self,
-                                 text="^",
-                                 command=lambda: self.clicked("**"),
-                                 **button_param
-                                 )
+        self.but_pow = tk.Button(
+            self, text="^", command=lambda arg="**": self.clicked(arg), **button_param)
         self.but_pow.grid(row=3, column=5)
-        self.but_result = tk.Button(self,
-                                    text="=",
-                                    command=lambda: self.result(),
-                                    **button_param
-                                    )
+        self.but_result = tk.Button(
+            self, text="=", command=self.result, **button_param)
         self.but_result.grid(row=1, column=5)
-        self.but_square_root = tk.Button(self,
-                                         text="√",
-                                         command=lambda: self.square(),
-                                         **button_param
-                                         )
+        self.but_square_root = tk.Button(
+            self, text="√", command=self.square, **button_param)
         self.but_square_root.grid(row=4, column=5)
-        self.but_open_paren = tk.Button(self,
-                                        text="(",
-                                        command=lambda: self.clicked("("),
-                                        **button_param
-                                        )
+        self.but_open_paren = tk.Button(
+            self, text="(", command=lambda arg="(": self.clicked(arg), **button_param)
         self.but_open_paren.grid(row=1, column=6)
-        self.but_close_paren = tk.Button(self,
-                                         text=")",
-                                         command=lambda: self.clicked(")"),
-                                         **button_param
-                                         )
+        self.but_close_paren = tk.Button(
+            self, text=")", command=lambda arg=")": self.clicked(arg), **button_param)
         self.but_close_paren.grid(row=2, column=6)
-        self.but_dot = tk.Button(self,
-                                 text=".",
-                                 command=lambda: self.clicked("."),
-                                 **button_param
-                                 )
+        self.but_dot = tk.Button(
+            self, text=".", command=lambda arg=".": self.clicked(arg), **button_param)
         self.but_dot.grid(row=4, column=2)
         self.entry = tk.Entry(self, relief="flat", font="Arial 15 bold")
         self.entry.grid(row=0, columnspan=7, sticky=tk.W + tk.E)

@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+import tkinter.messagebox
 import parser
 from math import sqrt, factorial
 
